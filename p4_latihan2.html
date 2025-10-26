@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Registrasi</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .form-container {
+      background-color: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(15px);
+      padding: 25px 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      width: 320px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: white;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: bold;
+      color: white;
+    }
+
+    input[type="text"],
+    input[type="number"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: none;
+      border-radius: 6px;
+      background-color: rgba(255, 255, 255, 0.2);
+      color: white;
+      box-sizing: border-box;
+      outline: none;
+    }
+
+    input::placeholder {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: rgba(0, 123, 255, 0.8);
+      border: none;
+      color: white;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: rgba(0, 123, 255, 1);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="form-container">
+    <h2>Form Registrasi</h2>
+    <form id="formRegistrasi">
+      <label for="nama-depan">Nama Depan</label>
+      <input type="text" id="nama-depan" name="nama-depan" placeholder="Masukkan nama depan" required>
+
+      <label for="nama-belakang">Nama Belakang</label>
+      <input type="text" id="nama-belakang" name="nama-belakang" placeholder="Masukkan nama belakang" required>
+
+      <label for="nilai-angka">Nilai Angka</label>
+      <input type="number" id="nilai-angka" name="nilai-angka" placeholder="Masukkan nilai angka" required>
+
+      <button type="submit">Daftar</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("formRegistrasi").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const namaDepan = document.getElementById("nama-depan").value;
+      const namaBelakang = document.getElementById("nama-belakang").value;
+      const nilaiAngka = parseFloat(document.getElementById("nilai-angka").value);
+
+      let nilaiHuruf;
+
+      if (nilaiAngka >= 90) nilaiHuruf = "A";
+      else if (nilaiAngka >= 80) nilaiHuruf = "B";
+      else if (nilaiAngka >= 70) nilaiHuruf = "C";
+      else if (nilaiAngka >= 60) nilaiHuruf = "D";
+      else nilaiHuruf = "E";
+
+      console.log("Nama Lengkap :", namaDepan + " " + namaBelakang);
+      console.log("Nilai Angka :", nilaiAngka);
+      console.log("Nilai Huruf :", nilaiHuruf);
+    });
+  </script>
+
+</body>
+</html>
